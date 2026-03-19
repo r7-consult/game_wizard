@@ -1,0 +1,23 @@
+{
+  "module": "03_cards_Solitaire_Spider",
+  "files": [
+    "build-plugin.bat",
+    "config.json",
+    "index.html",
+    "module-manifest.json",
+    "scripts/constants.js",
+    "scripts/core/ErrorHandler.js",
+    "scripts/core/SpiderEngine.js",
+    "scripts/core/SpiderManager.js",
+    "scripts/main.js",
+    "styles/main.css",
+    "styles/slider-plugin.css",
+    "translations/de-DE.json",
+    "translations/en-US.json",
+    "translations/es-ES.json",
+    "translations/fr-FR.json",
+    "translations/it-IT.json",
+    "translations/langs.json",
+    "translations/ru-RU.json"
+  ]
+}

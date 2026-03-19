@@ -1,0 +1,19 @@
+{
+  "modules": [
+    {
+      "module": "01_2048"
+    },
+    {
+      "module": "02_cards_Solitaire_Klondike"
+    },
+    {
+      "module": "03_cards_Solitaire_Spider"
+    },
+    {
+      "module": "04_cards_Solitaire_FreeCell"
+    },
+    {
+      "module": "chess"
+    }
+  ]
+}

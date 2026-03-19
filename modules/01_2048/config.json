@@ -1,0 +1,49 @@
+{
+  "name": "2048",
+  "organization": "",
+  "nameLocale": {
+    "ru": "2048",
+    "en": "2048"
+  },
+  "guid": "asc.{74F06B61-3FC1-4F44-9C71-56B13B3E6A01}",
+  "version": "1.0.1",
+  "managerWindow": {
+    "size": [
+      520,
+      820
+    ],
+    "minSize": [
+      420,
+      620
+    ],
+    "maxSize": [
+      900,
+      1100
+    ]
+  },
+  "variations": [
+    {
+      "description": "Объединяйте плитки и побейте свой рекорд",
+      "descriptionLocale": {
+        "ru": "Объединяйте плитки и побейте свой рекорд",
+        "en": "Merge tiles and beat your best score"
+      },
+      "url": "index.html",
+      "icons": [
+        "../../resources/icons/main/light/icon.png",
+        "../../resources/icons/main/dark/icon.png"
+      ],
+      "isViewer": true,
+      "EditorsSupport": [
+        "cell"
+      ],
+      "isVisual": true,
+      "isModal": true,
+      "isInsideMode": false,
+      "initDataType": "none",
+      "initData": "",
+      "isUpdateOleOnResize": false,
+      "buttons": []
+    }
+  ]
+}

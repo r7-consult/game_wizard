@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="18" fill="#2563eb"/>
+  <rect x="14" y="10" width="28" height="40" rx="6" fill="#ffffff"/>
+  <rect x="22" y="18" width="28" height="40" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="28" y="33" font-family="Georgia, serif" font-size="18" font-weight="700" text-anchor="middle" fill="#dc2626">K</text>
+  <path d="M28 38c2.8-5 10-4.4 10 1.4 0 4.4-5.2 7.4-10 11.6-4.8-4.2-10-7.2-10-11.6 0-5.8 7.2-6.4 10-1.4z" fill="#dc2626"/>
+</svg>
