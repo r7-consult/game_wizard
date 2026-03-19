@@ -373,23 +373,10 @@
   };
 
   GameWizardPlugin.prototype.onButton = function(id, windowId) {
-    var targetWindowId = windowId;
-    var buttonId = String(id);
-    var activeChildWindowId = '';
+    var targetWindowId = windowId || '';
 
-    if (!targetWindowId && typeof id === 'string' && id) {
+    if (!targetWindowId && typeof id === 'string' && id && id !== '-1') {
       targetWindowId = id;
-    }
-
-    if (!targetWindowId) {
-      try {
-        activeChildWindowId = window.localStorage.getItem(ACTIVE_CHILD_WINDOW_KEY) || '';
-      } catch (_) {
-        activeChildWindowId = '';
-      }
-      if (activeChildWindowId) {
-        targetWindowId = activeChildWindowId;
-      }
     }
 
     if (
@@ -404,7 +391,12 @@
 
     if (window.Asc && window.Asc.plugin && typeof window.Asc.plugin.executeCommand === 'function') {
       window.Asc.plugin.executeCommand('close', '');
+      return;
     }
+
+    try {
+      window.close();
+    } catch (_) {}
   };
 
   var plugin = new GameWizardPlugin();

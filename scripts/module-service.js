@@ -1059,8 +1059,32 @@
     }
   };
 
-  ModuleService.prototype.refresh = function() {
+  ModuleService.prototype.getKnownLocalModuleNames = function() {
+    var names = [];
+    var snapshot = this.lastSnapshot || {};
+
+    if (Array.isArray(snapshot.localModules)) {
+      for (var localIndex = 0; localIndex < snapshot.localModules.length; localIndex += 1) {
+        if (snapshot.localModules[localIndex] && snapshot.localModules[localIndex].module) {
+          names.push(snapshot.localModules[localIndex].module);
+        }
+      }
+    }
+
+    if (Array.isArray(snapshot.records)) {
+      for (var recordIndex = 0; recordIndex < snapshot.records.length; recordIndex += 1) {
+        if (snapshot.records[recordIndex] && snapshot.records[recordIndex].hasLocal && snapshot.records[recordIndex].localModule) {
+          names.push(snapshot.records[recordIndex].localModule);
+        }
+      }
+    }
+
+    return uniqueArray(names);
+  };
+
+  ModuleService.prototype.refresh = function(extraCandidateNames) {
     var self = this;
+    var forcedModules = Array.isArray(extraCandidateNames) ? uniqueArray(extraCandidateNames.filter(Boolean)) : [];
 
     return Promise.all([
       this.tryReadCatalogFile(this.bundledCatalogPath),
@@ -1070,7 +1094,7 @@
       var bundledModules = results[0];
       var cachedModules = results[1];
       var scannedModules = results[2];
-      var candidates = uniqueArray(scannedModules.concat(cachedModules, bundledModules));
+      var candidates = uniqueArray(forcedModules.concat(scannedModules, cachedModules, bundledModules));
 
       return Promise.all([
         self.readLocalModules(candidates),
@@ -1221,9 +1245,11 @@
           downloadedRelativePaths,
           deriveDirectoriesFromFiles(downloadedRelativePaths)
         );
+      }).then(function() {
+        return self.persistLocalCatalog(self.getKnownLocalModuleNames().concat([record.remoteModule]));
       });
     }).then(function() {
-      return self.refresh();
+      return self.refresh([record.remoteModule]);
     });
   };
 
@@ -1300,6 +1326,10 @@
         console.warn('[GameWizard] Failed to remove module root', record.localModulePath, rootError);
       }
     }).then(function() {
+      return self.persistLocalCatalog(self.getKnownLocalModuleNames().filter(function(moduleName) {
+        return moduleName && moduleName !== record.localModule;
+      }));
+    }).then(function() {
       return self.refresh();
     });
   };
@@ -1313,5 +1343,6 @@
 
   window.GameWizardModuleService = ModuleService;
 })(window);
+
 
 
