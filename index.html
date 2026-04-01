@@ -8,25 +8,46 @@
   <link rel="stylesheet" href="styles/main.css">
   <script src="vendor/oo/plugins.js"></script>
   <script src="vendor/oo/plugins-ui.js"></script>
+  <script>
+    window.__R7CGuardOptions = {
+      pluginName: 'Game Wizard',
+      managerName: '{r7} consult',
+      installUrl: 'https://r7-consult.ru/r7_market'
+    };
+  </script>
+  <script src="r7c-required.js"></script>
   <script src="scripts/manager-config.js"></script>
   <script src="scripts/game-launcher.js"></script>
   <script src="scripts/module-service.js"></script>
   <script src="scripts/ui.js"></script>
   <script src="scripts/plugin.js"></script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108328066', 'ym');
+
+    ym(108328066, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108328066" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <div class="gw-app" id="gw-app">
     <header class="gw-header">
       <div class="gw-heading">
         <h1 id="gw-title" class="gw-title">Game Wizard</h1>
-        <p id="gw-subtitle" class="gw-subtitle">Выберите игру для запуска</p>
+        <p id="gw-subtitle" class="gw-subtitle">Р’С‹Р±РµСЂРёС‚Рµ РёРіСЂСѓ РґР»СЏ Р·Р°РїСѓСЃРєР°</p>
       </div>
       <a
         class="gw-mascot-link"
         href="https://data.slider-ai.ru/?utm_source=casual_games%2F"
         target="_blank"
         rel="noopener noreferrer"
-        title="Перейти на сайт"
+        title="РџРµСЂРµР№С‚Рё РЅР° СЃР°Р№С‚"
       >
         <img class="gw-mascot" src="resources/images/astronaut.png" alt="Mascot">
       </a>
@@ -34,14 +55,14 @@
 
     <main class="gw-main">
       <div class="gw-main-title-row">
-        <h2 class="gw-main-title">Игры</h2>
-        <span id="gw-main-meta" class="gw-main-meta">Загрузка каталога...</span>
+        <h2 class="gw-main-title">РРіСЂС‹</h2>
+        <span id="gw-main-meta" class="gw-main-meta">Р—Р°РіСЂСѓР·РєР° РєР°С‚Р°Р»РѕРіР°...</span>
       </div>
       <div id="games-list" class="games-list" aria-live="polite"></div>
     </main>
 
     <footer class="gw-footer">
-      <span id="gw-status" class="gw-status">Готово</span>
+      <span id="gw-status" class="gw-status">Р“РѕС‚РѕРІРѕ</span>
     </footer>
   </div>
 </body>
